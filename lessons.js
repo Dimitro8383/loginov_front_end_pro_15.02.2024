@@ -64,7 +64,7 @@
 //     break;
 //   default:
 //     console.log('OK!');
-}
+// }
 
 // if (numOrStr === null) {
 //   console.log('ВИ СКАСУВАЛИ');
