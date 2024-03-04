@@ -1,32 +1,132 @@
-let userLength;
-let userArray = [];
-let index = 0;
-let userElement 
+//hw_09
 
-do {
-  userLength = prompt('Enter how many elements you want in Array:');
-} while(isNaN(userLength) || userLength.trim() === '');
-  
-do {
-  userElement = prompt(`Enter No ${index + 1} element`)
-  userArray.push(userElement);
-  index++
-} while (index < userLength);
+//taskOne
+let taskOne = [];
 
-alert(
-  `Your Array is 
-  [${userArray}]
-  let's sort it`
-);
+for (let i = 10; i <= 20; i++) {
+  taskOne.push(i);
+}
 
-userArray.sort();
-alert(`Sorted Array
-  ${userArray}`
-);
+console.log('taskOne:', taskOne.join(','));
 
-userArray.splice(1, 3);
 
-userArray.sort();
-alert(`Element from 2 till 4 deleted
-  ${userArray}`
-);
+//taskTwo
+for (let i = 10; i <= 20; i++ ) {
+  console.log(`${i} * ${i}:`, i**2);
+}
+
+
+//taskThree
+const seven = 7;
+
+for (let i = 1; i <= 10; i++) {
+  console.log(`${i} * 7 = ${i * seven}`);
+}
+
+
+//taskFour
+let taskFour = 0;
+
+for (let i = 1; i <= 15; i++) {
+  taskFour += i;
+}
+
+console.log('taskFour sum:', taskFour);
+
+
+//taskFive
+let multi = 1;
+
+for (let i = 15; i <= 35; i++) {
+  multi *= i;
+}
+
+if (Number.isInteger(multi)) {
+  multi = BigInt(multi);
+}
+
+console.log(`taskFive multi: ${multi}`);
+
+
+//taskSix
+let total = 0;
+let max = 500;
+
+for (let i = 1; i <= max; i++) {
+  total += i; 
+}
+
+console.log('taskSix:', total / max );
+
+
+//taskSeven
+let taskSeven = 0;
+
+for (let i = 30; i <= 80; i++) {
+  if (i % 2 === 0) {
+    taskSeven += i;
+  }
+}
+console.log('taskSeven:', taskSeven);
+
+
+//taskEight
+let taskEight = [];
+
+for ( i = 100; i <= 200; i++) {
+  if (i % 3 === 0) {
+    taskEight.push(i);
+  }
+}
+
+console.log('taskEight:', taskEight);
+
+
+//taskNine
+let taskNine = [];
+let userNumber;
+
+for (;;) {
+  userNumber = +prompt('Enter number')
+  if (userNumber && !isNaN(userNumber)) {
+    break
+  }
+}
+
+for ( let i = 1; i <= userNumber; i++) {
+  if (userNumber % i === 0) {
+    taskNine.push(i);
+  }
+}
+
+console.log('taskNine: ', taskNine);
+
+
+//taskTen && taskEleven
+let taskTen = 0;
+let taskEleven = 0;
+
+for (let item of taskNine) {
+  if (item % 2 === 0) {
+    taskTen++;
+    taskEleven += item;
+  }
+}
+
+console.log(
+  `taskTen: ${taskTen}
+taskEleven: ${taskEleven}
+  `);
+
+
+// //taskTwelve
+let taskTwelve = [];
+
+for (i = 0 ; i <= 10; i++) {
+  if(!taskTwelve[i]) taskTwelve.push([]);
+  for (let j = 0; j <= 10; j++) {
+    taskTwelve[i].push(i*j);
+  }
+}
+
+console.table(taskTwelve);
