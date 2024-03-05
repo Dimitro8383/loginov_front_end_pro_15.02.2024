@@ -39,7 +39,7 @@ console.log('taskThree: ', taskThree.join(' '));
 
 
 // taskFour
-let userNumberAnswer = false;
+let isNumberSimple = false;
 let userNumber_4;
 
 for (;;) {
@@ -49,18 +49,16 @@ for (;;) {
   }
 }
 
-for (let i = 2; i <= Number.MAX_SAFE_INTEGER; i++) {
+for (let i = 2; i <= userNumber_4; i++) {
   if (i === userNumber_4) {
-    userNumberAnswer = true;
+    isNumberSimple = true;
     break;
-  } else {
-    if(userNumber_4 % i === 0) {
-      break;
-    }
+  } else if (userNumber_4 % i === 0) {
+    break;
   }
 }
 
-console.log('Число ' + userNumber_4 + (userNumberAnswer ? 
+console.log('Число ' + userNumber_4 + (isNumberSimple ? 
   ' є просте ' : ' не є просте'));
 
 
@@ -79,12 +77,10 @@ for (;;) {
 for(let i = 1; i <= Number.MAX_SAFE_INTEGER; i++) {
   if( 3 ** i > userNumber_5) {
       break;
-    } else {
-    if( 3 ** i === userNumber_5) {
-      canGetUserNumber = true;  
-      power = i;  
-      break;
-    }
+  } else if( 3 ** i === userNumber_5) {
+    canGetUserNumber = true;  
+    power = i;  
+    break;
   }
 }
 
