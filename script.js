@@ -1,132 +1,93 @@
-//hw_09
+// hw_10
 
-//taskOne
+// taskOne
 let taskOne = [];
 
-for (let i = 10; i <= 20; i++) {
+for (let i = 20; i <= 30; i += 0.5) {
   taskOne.push(i);
 }
 
-console.log('taskOne:', taskOne.join(','));
+console.log('taskOne: ', taskOne.join(' '));
 
 
-//taskTwo
-for (let i = 10; i <= 20; i++ ) {
-  console.log(`${i} * ${i}:`, i**2);
+// taskTwo
+const exchRate = 27;
+
+for (let i = 10; i <= 100; i += 10) {
+  console.log(`${i} USD cost ${i * exchRate} UAH`);
 }
 
 
-//taskThree
-const seven = 7;
-
-for (let i = 1; i <= 10; i++) {
-  console.log(`${i} * 7 = ${i * seven}`);
-}
-
-
-//taskFour
-let taskFour = 0;
-
-for (let i = 1; i <= 15; i++) {
-  taskFour += i;
-}
-
-console.log('taskFour sum:', taskFour);
-
-
-//taskFive
-let multi = 1;
-
-for (let i = 15; i <= 35; i++) {
-  multi *= i;
-}
-
-if (Number.isInteger(multi)) {
-  multi = BigInt(multi);
-}
-
-console.log(`taskFive multi: ${multi}`);
-
-
-//taskSix
-let total = 0;
-let max = 500;
-
-for (let i = 1; i <= max; i++) {
-  total += i; 
-}
-
-console.log('taskSix:', total / max );
-
-
-//taskSeven
-let taskSeven = 0;
-
-for (let i = 30; i <= 80; i++) {
-  if (i % 2 === 0) {
-    taskSeven += i;
-  }
-}
-console.log('taskSeven:', taskSeven);
-
-
-//taskEight
-let taskEight = [];
-
-for ( i = 100; i <= 200; i++) {
-  if (i % 3 === 0) {
-    taskEight.push(i);
-  }
-}
-
-console.log('taskEight:', taskEight);
-
-
-//taskNine
-let taskNine = [];
-let userNumber;
+// taskThree
+let taskThree = [];
+let userNumber_3;
 
 for (;;) {
-  userNumber = +prompt('Enter number')
-  if (userNumber && !isNaN(userNumber)) {
+  userNumber_3 = +prompt('TaskThree, Enter number')
+  if (userNumber_3 && !isNaN(userNumber_3)) {
     break
   }
 }
 
-for ( let i = 1; i <= userNumber; i++) {
-  if (userNumber % i === 0) {
-    taskNine.push(i);
+for(let i = 1; i <= 100; i++) {
+  if( i * i <= userNumber_3) {
+    taskThree.push(i);
   }
 }
 
-console.log('taskNine: ', taskNine);
+console.log('taskThree: ', taskThree.join(' '));
 
 
-//taskTen && taskEleven
-let taskTen = 0;
-let taskEleven = 0;
+// taskFour
+let userNumberAnswer = false;
+let userNumber_4;
 
-for (let item of taskNine) {
-  if (item % 2 === 0) {
-    taskTen++;
-    taskEleven += item;
+for (;;) {
+  userNumber_4 = +prompt('TaskFour, Enter number')
+  if (userNumber_4 && !isNaN(userNumber_4)) {
+    break
   }
 }
 
-console.log(
-  `taskTen: ${taskTen}
-taskEleven: ${taskEleven}
-  `);
-
-
-// //taskTwelve
-let taskTwelve = [];
-
-for (i = 0 ; i <= 10; i++) {
-  if(!taskTwelve[i]) taskTwelve.push([]);
-  for (let j = 0; j <= 10; j++) {
-    taskTwelve[i].push(i*j);
+for (let i = 2; i <= Number.MAX_SAFE_INTEGER; i++) {
+  if (i === userNumber_4) {
+    userNumberAnswer = true;
+    break;
+  } else {
+    if(userNumber_4 % i === 0) {
+      break;
+    }
   }
 }
 
-console.table(taskTwelve);
+console.log('Число ' + userNumber_4 + (userNumberAnswer ? 
+  ' є просте ' : ' не є просте'));
+
+
+// taskFive
+let userNumber_5;
+let canGetUserNumber = false;
+let power;
+
+for (;;) {
+  userNumber_5 = +prompt('TaskFive, Enter number')
+  if (userNumber_5 && !isNaN(userNumber_5)) {
+    break
+  }
+}
+
+for(let i = 1; i <= Number.MAX_SAFE_INTEGER; i++) {
+  if( 3 ** i > userNumber_5) {
+      break;
+    } else {
+    if( 3 ** i === userNumber_5) {
+      canGetUserNumber = true;  
+      power = i;  
+      break;
+    }
+  }
+}
+
+console.log('Число ' + userNumber_5 + (canGetUserNumber ? 
+  ' можливо отримати шляхом зведення числа 3 у ступінь ' + 
+  power : ' не можливо отримати шляхом зведення числа 3 у деякий ступінь'));
