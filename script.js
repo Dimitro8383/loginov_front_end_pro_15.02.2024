@@ -1,89 +1,34 @@
-// hw_10
+//hw11
 
-// taskOne
-let taskOne = [];
+let arr_1 = [];
 
-for (let i = 20; i <= 30; i += 0.5) {
-  taskOne.push(i);
+for (let i = 1; i <= 5; i++) {
+  arr_1.push(i);
 }
 
-console.log('taskOne: ', taskOne.join(' '));
+console.log(arr_1);
 
-
-// taskTwo
-const exchRate = 27;
-
-for (let i = 10; i <= 100; i += 10) {
-  console.log(`${i} USD cost ${i * exchRate} UAH`);
+function removeElement(array, item) {
+  let removeIndex = array.indexOf(item);
+    if (removeIndex != -1) {
+      array.splice(removeIndex, 1);
+    }
 }
+removeElement(arr_1, 500);
+console.log(arr_1);
 
+removeElement(arr_1, 1);
+console.log(arr_1);
 
-// taskThree
-let taskThree = [];
-let userNumber_3;
+removeElement(arr_1, 5);
+console.log(arr_1);
 
-for (;;) {
-  userNumber_3 = +prompt('TaskThree, Enter number')
-  if (userNumber_3 && !isNaN(userNumber_3)) {
-    break
-  }
-}
+removeElement(arr_1, 3);
+console.log(arr_1);
 
-for(let i = 1; i <= 100; i++) {
-  if( i * i <= userNumber_3) {
-    taskThree.push(i);
-  }
-}
+removeElement(arr_1, 2);
+console.log(arr_1);
 
-console.log('taskThree: ', taskThree.join(' '));
+removeElement(arr_1, 4);
+console.log(arr_1);
 
-
-// taskFour
-let isNumberSimple = false;
-let userNumber_4;
-
-for (;;) {
-  userNumber_4 = +prompt('TaskFour, Enter number')
-  if (userNumber_4 && !isNaN(userNumber_4)) {
-    break
-  }
-}
-
-for (let i = 2; i <= userNumber_4; i++) {
-  if (i === userNumber_4) {
-    isNumberSimple = true;
-    break;
-  } else if (userNumber_4 % i === 0) {
-    break;
-  }
-}
-
-console.log('Число ' + userNumber_4 + (isNumberSimple ? 
-  ' є просте ' : ' не є просте'));
-
-
-// taskFive
-let userNumber_5;
-let canGetUserNumber = false;
-let power;
-
-for (;;) {
-  userNumber_5 = +prompt('TaskFive, Enter number')
-  if (userNumber_5 && !isNaN(userNumber_5)) {
-    break
-  }
-}
-
-for(let i = 1; i <= Number.MAX_SAFE_INTEGER; i++) {
-  if( 3 ** i > userNumber_5) {
-      break;
-  } else if( 3 ** i === userNumber_5) {
-    canGetUserNumber = true;  
-    power = i;  
-    break;
-  }
-}
-
-console.log('Число ' + userNumber_5 + (canGetUserNumber ? 
-  ' можливо отримати шляхом зведення числа 3 у ступінь ' + 
-  power : ' не можливо отримати шляхом зведення числа 3 у деякий ступінь'));
