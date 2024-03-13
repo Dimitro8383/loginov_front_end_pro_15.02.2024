@@ -1,14 +1,15 @@
-// // hw12
-const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+// hw14
 
-function generateKey(length, content) {
-  let resultKey = [];
-  let contentLength = content.length;
-  for (let i = 1; i <= length; i++) {
-    resultKey.push(content[Math.floor(Math.random() * characters.length)]);
+"use strict";
+
+const pow = (num, degree) => {
+  if (degree === 0) {
+    return 1;
+  } else if (degree === 1 ) {
+    return num;  
+  } else {
+    return num * pow(num, degree - 1);
   }
-  return (resultKey);
-}
+};
 
-console.log(generateKey(16, characters));
-
+console.log(pow(2,4));
