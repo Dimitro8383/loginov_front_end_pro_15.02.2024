@@ -1,154 +1,172 @@
-"use strict";
+// //hw 15
+"use strict"
 
-// hw13.1
+let hw15 = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
 
-const hw13_1 = ['qqq', 10, 'www', 20, 'eee', 30, null, 40, true, 50];
-
-const averageSum = function(arr) {
+const funcOneSumAndQuontity = function (arr) {
   let sum = 0;
-  let count = 0;
-  let numbers_arr = arr.filter(item => typeof item === 'number');
-  for (let item of numbers_arr) {
-    sum += item;
-    count++
-  }
-  return sum / count;
-}
-
-console.log(averageSum(hw13_1));
-
-
-// hw13.2
-
-const calculator = function(x, znak, y) {
-  let userNumFirst;
-  let userNumSecond;
-
-  for (;;) {
-    userNumFirst = +prompt('enter X:')
-    if (userNumFirst && !isNaN(userNumFirst)) {
-      break
+  let countPositive = 0;
+  for (let num of arr) {
+    if (num > 0) {
+      sum += num;
+      countPositive++;
     }
   }
+  return {sum, countPositive};
+}
 
-  for (;;) {
-    userNumSecond = +prompt('enter X:')
-    if (userNumSecond && !isNaN(userNumSecond)) {
-      break
+
+const funcTwoMinAndSeq = function (arr) {
+  let min = arr[0];
+  let sequence = 0;
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
+      sequence = i + 1;
     }
   }
-
-  let userZnak = prompt("Enter any Znak from: '+' '-' '*' '/' '%' '^'");
-
-  switch (userZnak) {
-    case '+':
-      return userNumFirst + userNumSecond;
-    case '-':
-      return userNumFirst - userNumSecond;
-    case '*':
-      return userNumFirst * userNumSecond;
-    case '/':
-      return userNumFirst / userNumSecond;
-    case '%':
-      return userNumFirst % userNumSecond;
-    case '^':
-      return Math.pow(userNumFirst, userNumSecond);
-    default:
-      return 'Znak no good'
-  }
+  return {min, sequence};
 }
 
-console.log(calculator());
 
-
-// hw 13.3
-
-let userRows;
-let userCollumns;
-
-for (;;) {
-  userRows = +prompt('enter Rows in matrix:')
-  if (userRows && !isNaN(userRows)) {
-    break
-  }
-}
-
-for (;;) {
-  userCollumns = +prompt('enter Collumns in matrix:')
-  if (userCollumns && !isNaN(userCollumns)) {
-    break
-  }
-}
-
-const makeArray = function(rows, collumns) {
-  let userArray = [];
-
-  for (let i = 1; i <= rows; i++) {
-    let row = [];
-    for (let j = 1; j <= collumns; j++) {
-      let element = prompt(`enter element row ${i} and collumn ${j}`)
-      row.push(element);
+const funcThreeMaxAndSeq = function (arr) {
+  let max = arr[0];
+  let sequence = 0;
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+      sequence = i + 1;
     }
-    userArray.push(row);
-  } 
-  return userArray
-}
-
-console.table(makeArray(userRows, userCollumns));
-
-
-// hw 13.4
-let userString;
-
-for (;;) {
-  userString = prompt('enter string:').split('');
-  if (userString) {
-    break;
   }
+  return {max, sequence};
 }
 
-var userChars = prompt('enter chars for delete:').split('');
 
-const deleteChars = function (string, chars) {
-  for (let i = 0; i < string.length; i++) {
-    for (let j = 0; j <= chars.length; j++) {
-      if (string[i] === chars[j]) {
-        string.splice(i,1);
-        i--;
-        break;
+const funcFourQuontityNegative = function (arr) {
+  let quontityNegative = 0;
+  for (let item of arr) {
+    if (item < 0) {
+      quontityNegative++;
+    }
+  }
+  return {quontityNegative};
+}
+
+
+const funcFiveQuontityNotMatchPositive = function (arr) {
+  let quontityNotMatchPositive = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      let match = false;
+      for (let j = 0; j < arr.length; j++) {
+        if (i !== j && arr[j] > 0 && arr[i] === arr[j]) {
+          match = true;
+          break;
+        }
+      }
+      if (!match) {
+        quontityNotMatchPositive++;
       }
     }
   }
-  return string.join('');
+  return {quontityNotMatchPositive};
 }
 
-console.log(deleteChars(userString, userChars));
+
+const funcSixQuonityMatchPositive = function (arr) {
+  let quontityMatchPositive = 0;
+  let arr_2 = arr.slice();
+  for (let i = 0; i < arr_2.length; i++) {
+    if (arr_2[i] > 0) {
+      for (let j = 0; j < arr_2.length; j++) {
+        if (i !== j && arr_2[j] > 0 && arr_2[i] === arr_2[j]) {
+          quontityMatchPositive += 2;
+          arr_2.splice(i,1,undefined);
+          arr_2.splice(j,1,undefined);
+        }
+      }
+    }
+  }
+  return {quontityMatchPositive};
+}
 
 
+const funcSevenSumMatchPositive = function (arr) {
+  let sum = 0;
+  let arr_2 = arr.slice();
+  for (let i = 0; i < arr_2.length; i++) {
+    if (arr_2[i] > 0) {
+      for (let j = 0; j < arr_2.length; j++) {
+        if (i !== j && arr_2[j] > 0 && arr_2[i] === arr_2[j]) {
+          sum += (arr[i] * 2);
+          arr_2.splice(i,1,undefined);
+          arr_2.splice(j,1,undefined);
+        }
+      }
+    }
+  }
+  return {sum};
+}
 
 
+const funcEightSumNotMatchPositive = function (arr) {
+  let sumNotMatchPositive = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      let match = false;
+      for (let j = 0; j < arr.length; j++) {
+        if (i !== j && arr[j] > 0 && arr[i] === arr[j]) {
+          match = true;
+          break;
+        }
+      }
+      if (!match) {
+        sumNotMatchPositive += arr[i];
+      }  
+    }
+  }
+  return {sumNotMatchPositive}
+}
 
 
+const funcNineMultiPositive = function (arr) {
+  let multiPositiveItem = 1;
+  for (let item of arr) {
+    if (item > 0) {
+      multiPositiveItem *= item;
+    }
+  }
+  return {multiPositiveItem};
+}
 
 
+const funcTenMaxAndNull = function (arr) {
+  let arr_2 = arr;
+  let max = arr_2[0];
+  for (let item of arr_2) {
+    if (item > max) {
+      max = item;
+    }
+  }
+  for (let i = 0; i < arr_2.length; i++) {
+    if (arr_2[i] != max) {
+      arr.splice(i, 1, 0);
+    }
+  }
+  return {max, arr_2};
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(funcOneSumAndQuontity(hw15));
+console.log(funcTwoMinAndSeq(hw15));
+console.log(funcThreeMaxAndSeq(hw15));
+console.log(funcFourQuontityNegative(hw15));
+console.log(funcFiveQuontityNotMatchPositive(hw15));
+console.log(funcSixQuonityMatchPositive(hw15));
+console.log(funcSevenSumMatchPositive(hw15));
+console.log(funcEightSumNotMatchPositive(hw15));
+console.log(funcNineMultiPositive(hw15));
+console.log(funcTenMaxAndNull(hw15));
 
 
 
