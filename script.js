@@ -2,7 +2,7 @@
 
 // hw13.1
 
-const hw13_1 = ['qqq', 10, Infinity, 20, NaN, 30, null, 40, true, 50, '100000'];
+const hw13_1 = ['qqq', 10, Infinity, 20, NaN, 30, null, 40, 0, true, 50, false, '100000'];
 
 const averageSum = function(arr) {
   let sum = 0;
@@ -108,7 +108,7 @@ for (;;) {
   }
 }
 
-let userChars = prompt('enter chars for delete:').split('');
+var userChars = prompt('enter chars for delete:').split('');
 
 const deleteChars = function (string, chars) {
   for (let i = 0; i < string.length; i++) {
