@@ -108,7 +108,7 @@ for (;;) {
   }
 }
 
-var userChars = prompt('enter chars for delete:').split('');
+let userChars = prompt('enter chars for delete:').split('');
 
 const deleteChars = function (string, chars) {
   for (let i = 0; i < string.length; i++) {
