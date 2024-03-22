@@ -1,16 +1,21 @@
-//hw16
+//hw17
 
 "use strict"
 
-function sum() {
-  let summa = 0;
-  return function addSum (x) {
-    return summa += x;
+let ladder = {
+  step: 0,
+  up: function () {
+    this.step++;
+    return this;
+  },
+  down: function () {
+    this.step--;
+    return this;
+  },
+  showStep: function () {
+    alert(this.step);
+    return this;
   }
-}
+};
 
-let myFuncAdd = sum();
-
-console.log(myFuncAdd(3));
-console.log(myFuncAdd(5));
-console.log(myFuncAdd(20));
+ladder.up().up().down().showStep();
